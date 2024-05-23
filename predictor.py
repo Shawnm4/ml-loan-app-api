@@ -2,8 +2,11 @@
 import pandas as pd
 import joblib
 
-model_path = 'C:/Users/bnice/OneDrive/Desktop/sample_project1/loan_data.pkl'
-transformer_path = 'C:/Users/bnice/OneDrive/Desktop/sample_project1/column_transformer.pkl'
+# model_path = 'C:/Users/bnice/OneDrive/Desktop/sample_project1/loan_data.pkl'
+# transformer_path = 'C:/Users/bnice/OneDrive/Desktop/sample_project1/column_transformer.pkl'
+
+model_path = 'loan_data.pkl'
+transformer_path = 'column_transformer.pkl'
 
 # Load the model and transformer
 model = joblib.load(model_path)
