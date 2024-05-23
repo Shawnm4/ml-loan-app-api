@@ -22,5 +22,11 @@ def predict():
     }
     return jsonify(response)
 
+@app.route('/favicon.ico')
+def favicon():
+    return jsonify(success=True)
+
+
+
 if __name__ == 'main':
     app.run(debug=True)
