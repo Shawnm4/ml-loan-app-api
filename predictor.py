@@ -10,18 +10,16 @@ model = joblib.load(model_path)
 transformer = joblib.load(transformer_path)
 
 def get_data_ready(features):
-#      loan_data = pd.DataFrame([features], columns=[
-#         'credit.policy', 'purpose', 'int.rate', 'installment', 'log.annual.inc',
-#         'dti', 'fico', 'days.with.cr.line', 'revol.bal', 'revol.util',
-#         'inq.last.6mths', 'delinq.2yrs', 'pub.rec'
-#     ])
-#      transformed_loan_data = transformer.transform(loan_data)
-#      return transformed_loan_data
+     loan_data = pd.DataFrame([features], columns=[
+        'credit.policy', 'purpose', 'int.rate', 'installment', 'log.annual.inc',
+        'dti', 'fico', 'days.with.cr.line', 'revol.bal', 'revol.util',
+        'inq.last.6mths', 'delinq.2yrs', 'pub.rec'
+    ])
+     transformed_loan_data = transformer.transform(loan_data)
+     return transformed_loan_data
 
-# def predictor(features):
-#      transformed_features = get_data_ready(features)
-#      prediction = model.predict(transformed_features)
-     # return prediction[0].item()
-     return {
-          "Test":"Works"
-     }
+def predictor(features):
+     transformed_features = get_data_ready(features)
+     prediction = model.predict(transformed_features)
+     return prediction[0].item()
+
