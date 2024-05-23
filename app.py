@@ -1,5 +1,5 @@
 from flask import Flask,request,jsonify
-# import predictor
+import predictor
 from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
@@ -9,18 +9,16 @@ def home():
 
 @app.route("/predict",methods=["POST"])
 def predict():
-    # data=request.get_json(force=True)
-    # features = data.get('features',[])
+    data=request.get_json(force=True)
+    features = data.get('features',[])
     
-    # # prediction = predictor.predictor(features)
-    # response ={
-    #     'prediction':prediction,
-    #     'recieved_feats':features
-    # }
-    return jsonify({
-        'test':"test",
-        'recieved_feats':"test"
-    })
+    prediction = predictor.predictor(features)
+    response ={
+        'prediction':prediction,
+        'recieved_feats':features
+    }
+    return jsonify(response
+        )
 
 @app.route('/favicon.ico')
 def favicon():
